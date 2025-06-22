@@ -1,100 +1,98 @@
-# alx-project-0x14
+# ALX Movie App Project
 
-✅ Major Tasks Completed
-1. Reading & Understanding API Documentation
-✅ Created README.md with:
+This project leverages the MoviesDatabase API to provide a rich catalog of movie data, including titles, genres, release years, and images. The app is built with Next.js, TypeScript, ESLint, and Tailwind CSS.
 
-Overview, version, endpoints, request/response structure
+---
 
-Authentication requirements
+## 🚀 Getting Started
 
-Error handling & usage limits
+### 1. Create Project Directory
 
-2. Bootstrap MovieApp
-✅ Set up Next.js project with:
+```bash
+mkdir alx-project-0x14
+cd alx-project-0x14
+```
 
-TypeScript, Tailwind CSS, ESLint
+### 2. Initialize README
 
-Folder structure and components created (Button, Loading, MovieCard, etc.)
+```bash
+touch README.md
+```
 
-FontAwesome icons installed
+---
 
-alx-project-0x14 GitHub repo structure in place
+## 📚 API Documentation
 
-3. Layout & Landing Page
-✅ Header, Footer, and Layout components created
+- **API**: [MoviesDatabase API on RapidAPI](#) <!-- Replace with actual link -->
+- **Version**: v1
 
-✅ Functional and styled landing page:
+### Endpoints
 
-Hero section with call-to-action buttons
+- `GET /titles`: Fetch list of movies (supports filtering by genre, year, and pagination)
+- `GET /titles/{id}`: Fetch details for a single movie
 
-Proper use of Tailwind for layout and design
+### Request Example
 
-✅ Mobile responsiveness applied
+```http
+GET /titles?genre=Comedy&year=2023&page=1
+Headers:
+    x-rapidapi-key: YOUR_API_KEY
+```
 
-✅ Layout used in _app.tsx correctly
+### Response Example
 
-4. Movies Page
-✅ Movie listing with filters by year and genre
+```json
+{
+    "results": [
+        {
+            "id": "tt1234567",
+            "titleText": { "text": "Example Movie" },
+            "primaryImage": { "url": "image.jpg" },
+            "releaseYear": { "year": 2023 }
+        }
+    ]
+}
+```
 
-✅ Paginated API calls using /api/fetch-movies
+### Authentication
 
-✅ Components:
+- Use `x-rapidapi-key` in the headers.
+- Store API keys securely in `.env.local`.
 
-MovieCard – poster, title, year
+### Error Handling
 
-Loading – overlay spinner
+- `400`: Bad Request
+- `401`: Unauthorized (invalid API key)
+- `429`: Rate limit exceeded
 
-✅ Functional client-server interaction via Next.js API route
+### Usage Limits & Best Practices
 
-✅ Proper state management with useState, useEffect, useCallback
+- Respect API rate limits.
+- Use pagination to minimize request size.
+- Cache results client-side if necessary.
 
-5. Type Safety and Interfaces
-✅ Defined reusable interfaces for props and API responses in interfaces/index.ts
+---
 
-✅ Used throughout the app for strong typing and maintainability
+## 🏁 Step 1: Bootstrap the App
 
-6. Environment Variables
-✅ .env.local to secure API key
+### Generate the App
 
-✅ API requests proxy through server-side function to protect keys
+```bash
+npx create-next-app@latest alx-movie-app --typescript --eslint --tailwind
+```
+- Select **No** for `src/` and App Router.
+- Select **Yes** to customize import alias (optional).
 
-🧠 Learning Objectives Achieved
-Understanding and consuming REST APIs
+### Navigate to the Project
 
-Structuring a TypeScript + Next.js app
+```bash
+cd alx-movie-app
+```
 
-Component reuse and clean architecture
+### Install FontAwesome
 
-API error handling and loading UI
+```bash
+npm install @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons @fortawesome/fontawesome
+```
 
-Responsive, accessible front-end UI with Tailwind
-
-Client/server separation using Next.js pages router
-
-🔎 Feedback & Suggestions
-⭐ Strengths:
-Very well-structured and modular codebase
-
-Clear separation of concerns between UI, logic, and data fetching
-
-Strong understanding of TypeScript interfaces and props
-
-UI is polished, responsive, and visually engaging
-
-API key security handled well with .env.local and server proxy
-
-##📌 Possible Improvements:
-
-Search Input Logic: The search bar is currently static—adding functionality to filter by keyword/title would elevate UX.
-
-More Genres: Expand genre options dynamically from the API instead of hardcoding only four.
-
-Error UI: Consider adding a visible error message (e.g., toast or alert) when fetchMovies() fails.
-
-Accessibility Enhancements:
-
-Ensure buttons and links are keyboard-navigable
-
-Use aria-label where necessary for better screen reader support
-
+---
